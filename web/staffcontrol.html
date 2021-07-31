@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>last</title>
+    <script type="text/javascript" src="./eel.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body
+    style="
+      background: linear-gradient(
+        90deg,
+        rgb(71, 69, 147) 0%,
+        rgb(95, 61, 167) 100%
+      );
+    "
+  >
+    <nav
+      class="navbar navbar-light navbar-expand-md"
+      style="background: rgba(255, 255, 255, 0.16); color: rgb(255, 255, 255)"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #ffffff"
+          >The Choosen One</a
+        ><button
+          data-bs-toggle="collapse"
+          class="navbar-toggler"
+          data-bs-target="#navcol-1"
+        >
+          <span class="visually-hidden">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navcol-1"
+          style="padding-top: 12px"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="staffdash.html" style="color: #ffffff"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="staffwinner.html" style="color: #ffffff"
+                >Winner</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="staffcontrol.html"
+                style="color: #ffffff"
+                >Manage</a
+              >
+            </li>
+            <li class="nav-item"><a class="nav-link" href="profile_staff.html" style="color: #ffffff;">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html" style="color: #ffffff;border-radius: 0px;background: rgba(255,255,255,0);"><i class="fas fa-sign-out-alt" style="border-radius: 10px;border-width: 0px;border-style: solid;background: #ffffff;color: rgb(0,0,0);font-size: 20px;padding: 5px;"></i></a></li>
+                
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="d-flex flex-row" style="margin-top: 0px; padding: 17px">
+      <section class="d-flex flex-column" style="width: 35%">
+        <section style="margin-top: 15px">
+          <div
+            class="d-flex justify-content-center align-items-center"
+            style="color: rgb(255, 255, 255); box-shadow: 0px 0px 2px 1px"
+          >
+            <h1 style="font-size: 25.520000000000003px">Manage Voters</h1>
+          </div>
+          <div style="margin-top: 15px; color: rgb(176, 186, 195)">
+            <h3
+              onclick="calladdvoter();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Add Voter
+            </h3>
+            <h3
+              onclick="callremovevoter();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Remove Voter
+            </h3>
+            <h3
+              onclick="callmodifyvoter();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Modify Voter
+            </h3>
+            <h3
+              onclick="calldisplayvoter();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Display Voter
+            </h3>
+          </div>
+        </section>
+        <section style="margin-top: 15px">
+          <div
+            class="d-flex justify-content-center align-items-center"
+            style="color: rgb(255, 255, 255); box-shadow: 0px 0px 2px 1px"
+          >
+            <h1 style="font-size: 25.520000000000003px">Manage Candidates</h1>
+          </div>
+          <div style="margin-top: 15px; color: rgb(176, 186, 195)">
+            <h3
+              onclick="calladdcandi();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Add Candidates
+            </h3>
+            <h3
+              onclick="callremovecandi();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Remove&nbsp;Candidates<br />
+            </h3>
+            <h3
+              onclick="callmodifycandi();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Modify&nbsp;Candidates<br />
+            </h3>
+            <h3
+              onclick="calldisplaycandi();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Display&nbsp;Candidates<br />
+            </h3>
+          </div>
+        </section>
+        <section style="margin-top: 15px">
+          <div
+            class="d-flex justify-content-center align-items-center"
+            style="color: rgb(255, 255, 255); box-shadow: 0px 0px 2px 1px"
+          >
+            <h1 style="font-size: 25.520000000000003px">Manage System</h1>
+          </div>
+          <div style="margin-top: 15px; color: rgb(176, 186, 195)">
+            <h3
+              onclick="callinitsystem();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Initialize System
+            </h3>
+            <h3
+              onclick="callresetsystem();"
+              style="font-size: 20.408px; cursor: pointer"
+            >
+              Reset System
+            </h3>
+          </div>
+        </section>
+      </section>
+      <section
+        class="d-flex flex-column justify-content-center"
+        style="width: 65%; padding: 8px; height: 80vh"
+      >
+        <div
+          id="add-voter-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Add Voter
+          </h1>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="add-vname"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Name"
+              required=""
+            />
+            <input
+              id="add-vpassword"
+              class="form-control"
+              type="password"
+              style="margin-top: 7px"
+              placeholder="Enter Password"
+            />
+            <input
+              id="add-vage"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Age"
+              required=""
+            />
+            <input
+              id="add-ano"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Aadhaar Number"
+              required=""
+            />
+            <button
+              onclick="addvoter();"
+              class="btn btn-primary"
+              type="button"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              ADD
+            </button>
+          </form>
+        </div>
+        <div
+          id="remove-voter-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Remove Voter
+          </h1>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="voter-id"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Voter ID"
+            />
+            <button
+              class="btn btn-primary"
+              onclick="removevoter();"
+              type="button"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              Remove
+            </button>
+          </form>
+        </div>
+        <div
+          id="modify-voter-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Modify Voter
+          </h1>
+          <div
+            class="flex-column justify-content-center"
+            style="
+              padding: 10px;
+              border-width: 3.4px;
+              border-style: none;
+              border-left-style: none;
+            "
+          >
+            <form
+              class="
+                d-flex
+                flex-column
+                justify-content-center
+                align-items-center
+              "
+            >
+              <input
+                id="search-vid"
+                class="form-control"
+                type="text"
+                style="margin-top: 7px"
+                placeholder="Enter Voter ID"
+              />
+              <button
+                onclick="searchvoter();"
+                class="btn btn-primary"
+                type="button"
+                style="margin-top: 7px; width: 35%; font-weight: bold"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="modi-vname"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Name"
+            />
+            <input
+              id="modi-vpass"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Password"
+            />
+            <input
+              id="modi-vage"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Age"
+            />
+            <input
+              id="modi-vano"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Aadhaar Number"
+            />
+            <button
+              onclick="modifyvoter();"
+              class="btn btn-primary"
+              type="button"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              Modify
+            </button>
+          </form>
+        </div>
+        <div
+          id="add-candi-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Add Candidate
+          </h1>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="add-candi-name"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Name"
+            />
+            <input
+              id="add-candi-pass"
+              class="form-control"
+              type="password"
+              style="margin-top: 7px"
+              placeholder="Enter Password"
+            />
+            <input
+              id="add-candi-team"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Team Name"
+            />
+            <button
+              onclick="addcandi();"
+              class="btn btn-primary"
+              type="button"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              ADD
+            </button>
+          </form>
+        </div>
+        <div
+          id="remove-candi-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Remove Candidate
+          </h1>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="candi-id"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Candidate ID"
+            /><button
+              class="btn btn-primary"
+              type="button"
+              onclick="removecandi();"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              Remove
+            </button>
+          </form>
+        </div>
+        <div
+          id="modify-candi-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Modify Candidate
+          </h1>
+          <div
+            class="flex-column justify-content-center"
+            style="
+              padding: 10px;
+              border-width: 3.4px;
+              border-style: none;
+              border-left-style: none;
+            "
+          >
+            <form
+              class="
+                d-flex
+                flex-column
+                justify-content-center
+                align-items-center
+              "
+            >
+              <input
+                id="search-cid"
+                class="form-control"
+                type="text"
+                style="margin-top: 7px"
+                placeholder="Enter Candidate ID"
+              />
+              <button
+                onclick="searchcandi();"
+                class="btn btn-primary"
+                type="button"
+                style="margin-top: 7px; width: 35%; font-weight: bold"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="modi-candi-name"
+              class="form-control"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Name"
+            />
+            <input
+              class="form-control"
+              id="modi-candi-pass"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Password"
+            />
+            <input
+              class="form-control"
+              id="modi-candi-team"
+              type="text"
+              style="margin-top: 7px"
+              placeholder="Enter Team Name"
+            />
+            <button
+              class="btn btn-primary"
+              onclick="modifycandi();"
+              type="button"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              Modify
+            </button>
+          </form>
+        </div>
+        <div
+          id="init-system-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Initialize System
+          </h1>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="overkey"
+              class="form-control"
+              type="password"
+              style="margin-top: 7px"
+              placeholder="Enter Override Key"
+            />
+            <button
+              onclick="initsys();"
+              class="btn btn-primary"
+              type="button"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <div
+          id="reset-system-form"
+          class="d-none flex-column justify-content-center"
+          style="
+            padding: 10px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+          "
+        >
+          <h1 style="text-align: center; color: rgb(216, 223, 231)">
+            Reset System
+          </h1>
+          <form
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <input
+              id="rokey"
+              class="form-control"
+              type="password"
+              style="margin-top: 7px"
+              placeholder="Enter Override Key"
+            /><button
+              class="btn btn-primary"
+              onclick="resetsys();"
+              type="button"
+              style="margin-top: 7px; width: 35%; font-weight: bold"
+            >
+              Reset
+            </button>
+          </form>
+        </div>
+        <div
+          id="display-data"
+          class="d-none"
+          style="
+            font-weight: bold;
+            font-size: large;
+            width: 100%;
+            height: 400px;
+            padding: 20px;
+            border-width: 3.4px;
+            border-style: none;
+            border-left-style: none;
+            overflow: scroll;
+            box-shadow: 0px 0px 3px rgb(7, 7, 7, 0.5);
+          "
+        ></div>
+      </section>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      function calladdvoter() {
+        console.log("add");
+        document.getElementById("add-voter-form").className = "d-block";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+
+      function callremovevoter() {
+        console.log("remove");
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-block";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+
+      function callmodifyvoter() {
+        console.log("modify");
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-block";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+      function calldisplayvoter() {
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-block";
+
+        var myTableDiv = document.getElementById("display-data");
+        myTableDiv.innerHTML = "";
+        var table = document.createElement("TABLE");
+        table.border = "2";
+        table.cellspacing = "3";
+        table.style.width = "100%";
+        var tableBody = document.createElement("TBODY");
+        table.appendChild(tableBody);
+
+        eel.allvoter()(function (mes) {
+          //alert(mes);
+          var temp = mes[0];
+          var count = mes[1];
+          let some = [];
+          for (let i = 0; i < count; i++) {
+            some.push(temp[i]);
+          }
+          //alert(some);
+          for (let i = 0; i < count; i++) {
+            let data = some[i].split("|");
+            data.pop();
+
+            var tr = document.createElement("TR");
+            tr.style.border = "thick solid #ffeefe";
+            tableBody.appendChild(tr);
+
+            for (let j = 0; j < data.length; j++) {
+              var td = document.createElement("TD");
+              td.width = "auto";
+              td.appendChild(document.createTextNode(`${data[j]}`));
+              td.style.border = "thick solid #ffeefe";
+              td.style.textAlign = "center";
+              td.style.color=" rgb(255, 255, 255)";
+              tr.appendChild(td);
+            }
+          }
+          myTableDiv.appendChild(table);
+        });
+
+      }
+        function calldisplaycandi() {
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-block";
+
+        var myTableDiv = document.getElementById("display-data");
+        myTableDiv.innerHTML = "";
+        var table = document.createElement("TABLE");
+        table.border = "2";
+        table.cellspacing = "3";
+        table.style.width = "100%";
+        var tableBody = document.createElement("TBODY");
+        table.appendChild(tableBody);
+
+        eel.allcandidate()(function (mes) {
+          //alert(mes);
+          var temp = mes[0];
+          var count = mes[1];
+          let some = [];
+          for (let i = 0; i < count; i++) {
+            some.push(temp[i]);
+          }
+          //alert(some);
+          for (let i = 0; i < count; i++) {
+            let data = some[i].split("|");
+            data.pop();
+
+            var tr = document.createElement("TR");
+            tr.style.border = "thick solid #ffeefe";
+            tableBody.appendChild(tr);
+
+            for (let j = 0; j < data.length; j++) {
+              var td = document.createElement("TD");
+              td.width = "auto";
+              td.appendChild(document.createTextNode(`${data[j]}`));
+              td.style.border = "thick solid #ffeefe";
+              td.style.textAlign = "center";
+              td.style.color=" rgb(255, 255, 255)";
+              tr.appendChild(td);
+            }
+          }
+          myTableDiv.appendChild(table);
+        });
+
+      }
+      function calladdcandi() {
+        console.log("add");
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-block";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+
+      function callremovecandi() {
+        console.log("remove");
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-block";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+
+      function callmodifycandi() {
+        console.log("modify");
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-block";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+
+      function callinitsystem() {
+        console.log("active");
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-block";
+        document.getElementById("reset-system-form").className = "d-none";
+        document.getElementById("display-data").className = "d-none";
+      }
+
+      function callresetsystem() {
+        console.log("reset");
+        document.getElementById("add-voter-form").className = "d-none";
+        document.getElementById("remove-voter-form").className = "d-none";
+        document.getElementById("modify-voter-form").className = "d-none";
+        document.getElementById("add-candi-form").className = "d-none";
+        document.getElementById("remove-candi-form").className = "d-none";
+        document.getElementById("modify-candi-form").className = "d-none";
+        document.getElementById("init-system-form").className = "d-none";
+        document.getElementById("reset-system-form").className = "d-block";
+        document.getElementById("display-data").className = "d-none";
+      }
+    </script>
+    <script>
+      function addvoter() {
+        let name = document.getElementById("add-vname").value;
+        let password = document.getElementById("add-vpassword").value;
+        let age = document.getElementById("add-vage").value;
+        let ano = document.getElementById("add-ano").value;
+
+        eel.add_voter(
+          name,
+          password,
+          age,
+          ano
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+
+      function removevoter() {
+        let id = document.getElementById("voter-id").value;
+        eel.remove_voter(id)(function (mes) {
+          if (mes == "false") {
+            alert("Invalid ID passed");
+          } else {
+            alert("The Voter" + mes + "  data is removed");
+          }
+        });
+      }
+
+      function searchvoter() {
+        let searchid = document.getElementById("search-vid").value;
+        eel.display_voter(searchid)(function (mes) {
+          data = mes;
+          //alert(data[0]);
+          document.getElementById("modi-vname").value = data[1];
+          document.getElementById("modi-vpass").value = data[2];
+          document.getElementById("modi-vage").value = data[3];
+          document.getElementById("modi-vano").value = data[4];
+        });
+      }
+
+      function modifyvoter() {
+        let name = document.getElementById("modi-vname").value;
+        let password = document.getElementById("modi-vpass").value;
+        let age = document.getElementById("modi-vage").value;
+        let ano = document.getElementById("modi-vano").value;
+        let vid = document.getElementById("search-vid").value;
+        eel.modify_voter(
+          vid,
+          name,
+          password,
+          age,
+          ano
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+    </script>
+    <script>
+      function addcandi() {
+        let cname = document.getElementById("add-candi-name").value;
+        let cpass = document.getElementById("add-candi-pass").value;
+        let cteam = document.getElementById("add-candi-team").value;
+        eel.add_candidate(
+          cname,
+          cpass,
+          cteam
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+
+      function removecandi() {
+        let id = document.getElementById("candi-id").value;
+        eel.remove_candidate(id)(function (mes) {
+          if (mes == "false") {
+            alert("Invalid ID passed");
+          } else {
+            alert("The Team " + mes + "  data is removed");
+          }
+        });
+      }
+
+      function searchcandi() {
+        let searchid = document.getElementById("search-cid").value;
+        eel.display_candidate(searchid)(function (mes) {
+          data = mes;
+          //alert(data[0]);
+          document.getElementById("modi-candi-name").value = data[1];
+          document.getElementById("modi-candi-pass").value = data[2];
+          document.getElementById("modi-candi-team").value = data[3];
+        });
+      }
+
+      function modifycandi() {
+        let name = document.getElementById("modi-candi-name").value;
+        let password = document.getElementById("modi-candi-pass").value;
+        let team = document.getElementById("modi-candi-team").value;
+        let vid = document.getElementById("search-cid").value;
+        eel.modify_candidate(
+          vid,
+          name,
+          password,
+          team
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+      function initsys() {
+        let id = localStorage.getItem("userid");
+        let overkey = document.getElementById("overkey").value;
+        eel.system_mod(
+          id,
+          overkey
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+      function resetsys() {
+        let id = localStorage.getItem("userid");
+        let overkey = document.getElementById("rokey").value;
+        eel.reset(
+          id,
+          overkey
+        )(function (mes) {
+          alert(mes);
+        });
+      }
+    </script>
+  </body>
+</html>

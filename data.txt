@@ -1,0 +1,11 @@
+ca0001|tony|1001|Team_Tony|51|
+ca0002|Steve|1002|Team_Captain|21|
+ca0004|namjoon|1234|Bangtan|101|
+ca0005|kayo|1234|valorant|1|
+st0001|Mobious|1001|5656|
+st0002|loki|1002|7878|
+vt0001|vish|1001|24|2000|true|
+vt0002|sage|1002|22|2222|true|
+vt0004|thor|1234|1000|6600|true|
+vt0005|kayo|1234|20|7000|false|
+system|true||
